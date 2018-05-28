@@ -22,13 +22,11 @@ git clone https://github.com/scarolan/ptfe-preflight-check
 
 Next edit the `controls/network.rb` file and change these variables to match 
 your environment. The VCS url is your Version Control System, such as GitHub 
-or BitBucket Server. PTFE URL is the SSL-enabled URL of the system you wish to
-install PTFE on. Uncomment the proxy_url variable and set that as well if your
+or BitBucket Server. Uncomment the proxy_url variable and set that as well if your
 server is behind a corporate web proxy.
 
 ```
 vcs_url = 'https://www.google.com'
-ptfe_url = 'https://www.hashicorp.com'
 #proxy_url = 'http://localhost:3128'
 ```
 
