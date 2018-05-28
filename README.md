@@ -42,7 +42,7 @@ sudo inspec exec ptfe-preflight-check
 ### Option 2 - From your local workstation:
 When you use this option, you do *not* have to install InSpec on the Linux server.
 ```
-inspec exec ptfe-preflight-check -t ssh://ec2-user@52.39.28.189 -i ~/.ssh/id_dsa
+inspec exec ptfe-preflight-check -t ssh://ec2-user@52.39.28.189 -i ~/.ssh/id_dsa --sudo
 ```
 
 ## Results
