@@ -27,7 +27,7 @@ server is behind a corporate web proxy.
 
 ```
 vcs_url = 'https://www.github.com'
-#proxy_url = 'http://localhost:3128'
+#proxy_url = 'http://corp.proxy.server:3128'
 ```
 
 ## Run the tests
