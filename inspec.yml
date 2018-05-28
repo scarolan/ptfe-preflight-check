@@ -1,0 +1,10 @@
+name: ptfe-preflight-checks
+title: Private Terraform Enterprise Pre-Installation Checks
+maintainer: HashiCorp
+copyright: HashiCorp
+copyright_email: team-se@hashicorp.com
+license: DWTFYW 1.0
+summary: Checks that all of the pre-installation requirements for PTFE are met.
+version: 1.0.0
+supports:
+  - os-family: redhat
