@@ -4,11 +4,11 @@ pre-installation requirements for Private Terraform Enterprise. It has been
 tested on RHEL 7.5.
 
 ## Usage Instructions
-Install InSpec on your Linux instance. The easiest way to go about this is by 
-installing the Chef Development Kit. You can do that with this one-liner. If you
-are unable to install the ChefDK on your Linux machine, you can still scan the
-server via SSH from your local machine. Simply download and install the ChefDK 
-onto your laptop to use the SSH method.
+Install InSpec on your Linux instance or on your local workstation. The easiest 
+way to go about this is by installing the Chef Development Kit. You can do that 
+with this one-liner. If you are unable to install the ChefDK on your Linux
+server, you can still scan the server via SSH from your local machine. Simply 
+download and install the ChefDK onto your laptop to use the SSH method.
 
 ```
 curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk
