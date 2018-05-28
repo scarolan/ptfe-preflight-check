@@ -60,7 +60,7 @@ Version="1.13.1">> Server.Version should cmp >= "1.13"
      ✔  Mount / type should eq "xfs"
      ✔  Command xfs_info / stdout should include "ftype=1"
      ✔  Filesystem / size should be >= 41943040
-  ✔  proxy_network_checks: Command curl https://www.google.com
+  ✔  network_checks: Command curl https://www.google.com
      ✔  Command curl https://www.google.com exit_status should eq 0
      ✔  Command curl https://www.google.com exit_status should eq 0
      ✔  Command curl https://ec2.amazonaws.com exit_status should eq 0
