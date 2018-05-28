@@ -27,7 +27,7 @@ if defined? proxy_url
   end
 else
   # This control runs if you comment out proxy_url
-  control 'proxy_network_checks' do
+  control 'network_checks' do
     impact 1.0
     desc 'Check to see that we can reach the Internet, VCS server, and Cloud Providers'
     describe command("curl #{vcs_url}") do
