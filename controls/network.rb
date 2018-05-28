@@ -15,7 +15,7 @@ if defined? proxy_url
     describe command("curl --proxy #{proxy_url} #{vcs_url}") do
       its('exit_status') { should eq 0 }
     end
-    describe command("curl --proxy #{proxy_url} #{vcs_url}") do
+    describe command("curl --proxy #{proxy_url} #{ptfe_url}") do
       its('exit_status') { should eq 0 }
     end
     describe command("curl --proxy #{proxy_url} https://ec2.amazonaws.com") do
@@ -33,7 +33,7 @@ else
     describe command("curl #{vcs_url}") do
       its('exit_status') { should eq 0 }
     end
-    describe command("curl #{vcs_url}") do
+    describe command("curl #{ptfe_url}") do
       its('exit_status') { should eq 0 }
     end
     describe command("curl https://ec2.amazonaws.com") do
