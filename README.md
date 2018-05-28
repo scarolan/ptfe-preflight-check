@@ -5,7 +5,10 @@ tested on RHEL 7.5.
 
 ## Usage Instructions
 Install InSpec on your Linux instance. The easiest way to go about this is by 
-installing the Chef Development Kit. You can do that with this one-liner:
+installing the Chef Development Kit. You can do that with this one-liner. If you
+are unable to install the ChefDK on your Linux machine, you can still scan the
+server via SSH from your local machine. Simply download and install the ChefDK 
+onto your laptop to use the SSH method.
 
 ```
 curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk
@@ -29,13 +32,20 @@ ptfe_url = 'https://www.hashicorp.com'
 #proxy_url = 'http://localhost:3128'
 ```
 
-Once you have set your variables save the `controls/network.rb` file and run
-the pre-flight checks like this:
+## Run the tests
 
+### Option 1 - From the Linux server itself:
 ```
 sudo inspec exec ptfe-preflight-check
 ```
 
+### Option 2 - From your local workstation:
+When you use this option, you do *not* have to install InSpec on the Linux server.
+```
+inspec exec ptfe-preflight-check -t ssh://ec2-user@52.39.28.189 -i ~/.ssh/id_dsa
+```
+
+## Results
 The test output will look something like this:
 
 ```
