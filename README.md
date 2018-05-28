@@ -26,7 +26,7 @@ or BitBucket Server. Uncomment the proxy_url variable and set that as well if yo
 server is behind a corporate web proxy.
 
 ```
-vcs_url = 'https://www.google.com'
+vcs_url = 'https://www.github.com'
 #proxy_url = 'http://localhost:3128'
 ```
 
