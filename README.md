@@ -4,8 +4,11 @@ pre-installation requirements for Private Terraform Enterprise. It has been
 tested on RHEL 7.5.
 
 ## Usage Instructions
-Install InSpec on your Linux instance. The easiest way to go about this is by 
-installing the Chef Development Kit. You can do that with this one-liner:
+Install InSpec on your Linux instance or on your local workstation. The easiest 
+way to go about this is by installing the Chef Development Kit. You can do that 
+with this one-liner. If you are unable to install the ChefDK on your Linux
+server, you can still scan the server via SSH from your local machine. Simply 
+download and install the ChefDK onto your laptop to use the SSH method.
 
 ```
 curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk
@@ -19,23 +22,28 @@ git clone https://github.com/scarolan/ptfe-preflight-check
 
 Next edit the `controls/network.rb` file and change these variables to match 
 your environment. The VCS url is your Version Control System, such as GitHub 
-or BitBucket Server. PTFE URL is the SSL-enabled URL of the system you wish to
-install PTFE on. Uncomment the proxy_url variable and set that as well if your
+or BitBucket Server. Uncomment the proxy_url variable and set that as well if your
 server is behind a corporate web proxy.
 
 ```
-vcs_url = 'https://www.google.com'
-ptfe_url = 'https://www.hashicorp.com'
-#proxy_url = 'http://localhost:3128'
+vcs_url = 'https://www.github.com'
+#proxy_url = 'http://corp.proxy.server:3128'
 ```
 
-Once you have set your variables save the `controls/network.rb` file and run
-the pre-flight checks like this:
+## Run the tests
 
+### Option 1 - From the Linux server itself:
 ```
 sudo inspec exec ptfe-preflight-check
 ```
 
+### Option 2 - From your local workstation:
+When you use this option, you do *not* have to install InSpec on the Linux server.
+```
+inspec exec ptfe-preflight-check -t ssh://ec2-user@52.39.28.189 -i ~/.ssh/id_dsa --sudo
+```
+
+## Results
 The test output will look something like this:
 
 ```
@@ -61,8 +69,7 @@ Version="1.13.1">> Server.Version should cmp >= "1.13"
      ✔  Command xfs_info / stdout should include "ftype=1"
      ✔  Filesystem / size should be >= 41943040
   ✔  network_checks: Command curl https://www.google.com
-     ✔  Command curl https://www.google.com exit_status should eq 0
-     ✔  Command curl https://www.google.com exit_status should eq 0
+     ✔  Command curl https://www.github.com exit_status should eq 0
      ✔  Command curl https://ec2.amazonaws.com exit_status should eq 0
      ✔  Command curl https://management.azure.com exit_status should eq 0
 ```
